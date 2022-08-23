@@ -1,0 +1,204 @@
+.cart {
+    &__inner {
+        background-color: $white-color;
+        padding: 20px;
+        @extend %text-center;
+
+        @include breakpoint(sm) {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 30px;
+            align-items: center;
+            text-align: left;
+        }
+
+        &:hover {
+            .dauble-img {
+                .cart__thumb-outer {
+                    background-color: rgba($title-span-color, 0.8);
+                }
+
+                .cart__thumb-count {
+                    span {
+                        color: rgba($title-span-color, 0.8);
+                    }
+                }
+            }
+        }
+    }
+
+    &__thumb {
+        width: 100%;
+        margin-bottom: 30px;
+        @extend %flex,
+        %justify-center,
+        %ai-center;
+
+        @include breakpoint(sm) {
+            margin: 0;
+            text-align: center;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+        }
+
+        @include breakpoint(md) {
+            width: 100%;
+            justify-content: start;
+            margin-bottom: 30px;
+        }
+
+        @include breakpoint(lg) {
+            width: 80px;
+            margin-bottom: 0px;
+        }
+
+        @include breakpoint(xl) {
+            width: 100px;
+            margin-bottom: 30px;
+        }
+
+        @include breakpoint(xxl) {
+            width: 80px;
+            margin-bottom: 0px;
+        }
+
+        &.dauble-img {
+            @extend %flex,
+            %justify-between,
+            %ai-center,
+            %no-wrap;
+
+            @include breakpoint(sm) {
+                display: table;
+            }
+
+            @include breakpoint(md) {
+                display: inherit;
+            }
+
+            @include breakpoint(lg) {
+                display: table;
+            }
+
+            @include breakpoint(xl) {
+                display: inherit;
+                width: 100%;
+            }
+
+            @include breakpoint(xxl) {
+                display: table !important;
+                width: auto;
+            }
+        }
+    }
+
+    &__thumb-outer {
+        height: 70px;
+        width: 70px;
+        line-height: 70px;
+        @extend%text-center;
+        background-color: $ellipse-bg-color;
+        @include add-prefix(border-radius, 50%);
+        @extend %flex,
+        %justify-center,
+        %ai-center;
+        @include transition($transition);
+
+
+        @include breakpoint(sm) {
+            margin-bottom: 22px;
+        }
+
+        @include breakpoint(md) {
+            margin-bottom: 0;
+        }
+
+        @include breakpoint(lg) {
+            margin-bottom: 22px;
+        }
+
+        @include breakpoint(xl) {
+            margin-bottom: 0;
+        }
+
+        @include breakpoint(xxl) {
+            margin-bottom: 22px;
+        }
+    }
+
+    &__thumb-inner {
+        height: 60px;
+        width: 60px;
+        line-height: 60px;
+        @extend%text-center;
+        //border: 1px solid $ellipse-border-color;
+        background-color: $white-color;
+        @include add-prefix(border-radius, 50%);
+    }
+
+    &__thumb-count {
+        width: 65px;
+        height: 44px;
+        line-height: 44px;
+        text-align: center;
+
+        span {
+            font-size: 56px;
+            font-weight: 700;
+            color: $social_bg-color;
+            @include transition($transition);
+            text-shadow: -1px -1px 0 $white-color, 1px -1px 0 $white-color, -1px 1px 0 $white-color, 1px 1px 0 $white-color;
+        }
+    }
+
+    &__content {
+        width: calc(100%);
+
+        @include breakpoint(sm) {
+            padding-left: 33px;
+            width: calc(100% - 80px);
+        }
+
+        @include breakpoint(md) {
+            width: 100%;
+            padding: 0;
+        }
+
+        @include breakpoint(lg) {
+            width: calc(100% - 80px);
+            padding-left: 33px;
+        }
+
+        @include breakpoint(xl) {
+            width: 100%;
+            padding-left: 0;
+        }
+
+        @include breakpoint(xxl) {
+            width: calc(100% - 80px);
+            padding-left: 33px;
+        }
+
+        h4,
+        h6 {
+            @extend %text-bold,
+            %text-capitalize;
+            color: $title-color;
+
+            span {
+                @extend %text-uppercase;
+            }
+        }
+
+        h6 {
+            @include font-size($fs-h6);
+            margin-bottom: 14px;
+        }
+
+        h4 {
+            @include font-size($fs-h4);
+            margin-bottom: 11px;
+        }
+    }
+}

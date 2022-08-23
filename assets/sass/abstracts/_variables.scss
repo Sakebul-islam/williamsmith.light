@@ -1,0 +1,94 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+$bootstrap-sass-asset-helper: false !default;
+//
+// Variables
+// --------------------------------------------------
+
+//project common color
+$message-color: linear-gradient(to right, #ff1e6a, #ff355a, #ff494b, #ff5c3d, #ff6d2e);
+$alter-message-color: linear-gradient(to right, #e16d36, #e55a41, #e5474e, #e2325d, #db1c6d);
+$duration-cart-color: linear-gradient(to right, #ff1f69, #ff365a, #ff494b, #ff5c3c, #ff6d2e);
+$button-hover-color: linear-gradient(to right, #e16d36, #e55a41, #e5474e, #e2325d, #db1c6d);
+$resume-heading-bg-color : linear-gradient(to right, #ff6d2e, #ff5c3c, #ff4a4a, #ff3758, #ff2167);
+$portfolio-nav-hover-color: linear-gradient(to right, #ff6d25, #ff5c36, #ff4946, #ff3656, #ff2066);
+$logo-bg-color: linear-gradient(to bottom, #ff603b, #ff5047, #ff4054, #ff2d61, #ff156f);
+
+$theme-color: #efefef;
+$alter-theme-color: #f5f5f5;
+$title-color: #171329;
+$menu-title-color: #181329;
+$title_span-color: #db2368;
+$pragraph-color: #696969;
+$details-left-color: #565656;
+$resume-heading-color: #262626;
+$dagination-color: #555555;
+$white-color: #fff;
+$black-color: #000;
+$preloder-color-1: #0b185f;
+$preloder-color-2: #e8505b;
+$border-color-1: #f3f3f3;
+$social_bg-color: #ddd;
+$tryagain-color: #ff2167;
+$pi-track-color: #eeeeee;
+$ellipse-border-color: #f2ebe6;
+$ellipse-bg-color: #fbfaf8;
+$form-input-color: #d5e0e8;
+$form-input-focus-color: rgba(255, 0, 0, 0.3);
+$shadow-color: rgba(18, 31, 68, 0.1);
+$portfolio-icon-color: #44495d;
+$mobile-nav-color: #18222e;
+// ------------------------------------------
+//menu background-color
+
+$home-color: #fe1e6a;
+$about-color: #87d04d;
+$resume-color: #02b0ff;
+$services-color: #bb80f6;
+$portfolio-color: #c99672;
+$blog-color: #27d9c2;
+$contact-color: #15517e;
+$menu-sub-color: #b2b2b2;
+$menu-hover-color: #f8f9fa;
+
+// -------------------------------------------
+//Social color
+$social-color: #e04e79;
+$social-icon-color: #ff4d7b;
+$behance: #016ae3;
+$pinterest: #e60023;
+$dribbble: #ea4c89;
+$facebook: #1ea1f2;
+$twitter: #55acee;
+$instagram: #e4405f;
+$google: #dd4b39;
+$linkedin: #007bb5;
+$vimeo : #1ab7ea;
+$pinterest: #007bb5;
+$behance: #1769ff;
+$dribble : #ea4c89;
+
+//== Typography
+
+// font-family
+
+$global-font: "Barlow",
+sans-serif;
+
+// font-size
+
+$fs-base: 16px !default;
+
+$fs-h1: 60px;
+$fs-h2: 36px;
+$fs-h3: 30px;
+$fs-h4: 24px;
+$fs-h5: 20px;
+$fs-h6: 18px;
+$fs-14: 14px;
+
+//  transition
+$transition: all 0.3s ease;
+$transitions: all 0.5s ease;

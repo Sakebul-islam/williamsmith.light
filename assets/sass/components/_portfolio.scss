@@ -1,0 +1,39 @@
+.portfolio {
+    &__navigation {
+        margin-bottom: 35px;
+
+        ul {
+            gap: 10px;
+
+            li {
+                @extend %text-capitalize,
+                %text-bold,
+                %border-radius-2;
+                cursor: pointer;
+                background-color: $white-color;
+                color: $portfolio-icon-color;
+                padding: 9px 17px;
+
+                &:hover, &.mixitup-control-active {
+                    background-image: $portfolio-nav-hover-color;
+                    color: $white-color;
+                }
+            }
+        }
+    }
+
+    &__wrapper {
+        .portfolio-filter {
+            @extend %justify-center,
+            %ai-center;
+        }
+    }
+
+    &__thumb {
+
+        a,
+        img {
+            width: 100%;
+        }
+    }
+}

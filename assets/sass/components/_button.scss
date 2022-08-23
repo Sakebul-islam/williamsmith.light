@@ -1,0 +1,78 @@
+.comon-button {
+    font-size: $fs-base;
+    color: $white-color;
+    @extend %text-regular,
+    %border-radius-4,
+    %text-capitalize;
+    line-height: 3.125;
+    padding: 0 15px;
+
+    @include breakpoint(sm) {
+        padding: 0 22px;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: $social_bg-color !important;
+
+        &.facebook {
+            color: $facebook !important;
+        }
+
+        &.behance {
+            color: $behance !important;
+        }
+
+        &.pinterest {
+            color: $pinterest !important;
+        }
+
+        &.dribbble {
+            color: $dribbble !important;
+        }
+    }
+}
+
+.download-resum {
+    @extend %border-radius-4,
+    %text-capitalize,
+    %text-bold;
+    background-image: $duration-cart-color;
+    color: $white-color;
+    line-height: 3.438;
+    padding: 0px 18.25px;
+    box-shadow: 0px 3px 4px 0px rgba(18, 31, 68, 0.1);
+    @include transition($transition);
+
+    @include breakpoint(sm) {
+        padding: 0px 24.25px;
+    }
+
+    &:hover {
+        background-image: $button-hover-color;
+    }
+
+    img {
+        padding-left: 19px;
+    }
+}
+
+.submit-btn {
+    width: 100%;
+    @extend %border-radius-4,
+    %text-capitalize,
+    %text-bold;
+    background-image: $duration-cart-color;
+    color: $white-color;
+    line-height: 3.1;
+
+    &:hover {
+        background-image: $button-hover-color;
+    }
+}
+
+.submit-btn--extend {
+    width: auto;
+    padding: 0 35px;
+}

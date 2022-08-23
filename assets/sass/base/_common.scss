@@ -1,0 +1,518 @@
+// all section padding top and bottom
+.padding-tb {
+	padding-top: 80px;
+	padding-bottom: 80px;
+
+	@include breakpoint(sm) {
+		padding-top: 90px;
+		padding-bottom: 90px;
+	}
+
+	@include breakpoint(md) {
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}
+
+	@include breakpoint(lg) {
+		padding-top: 110px;
+		padding-bottom: 110px;
+	}
+
+	@include breakpoint(xl) {
+		padding-top: 120px;
+		padding-bottom: 120px;
+	}
+}
+
+.padding-t {
+	padding-top: 80px;
+
+	@include breakpoint(sm) {
+		padding-top: 90px;
+	}
+
+	@include breakpoint(md) {
+		padding-top: 100px;
+	}
+
+	@include breakpoint(lg) {
+		padding-top: 110px;
+	}
+
+	@include breakpoint(xl) {
+		padding-top: 120px;
+	}
+}
+
+.padding-b {
+	padding-bottom: 80px;
+
+	@include breakpoint(sm) {
+		padding-bottom: 90px;
+	}
+
+	@include breakpoint(md) {
+		padding-bottom: 100px;
+	}
+
+	@include breakpoint(lg) {
+		padding-bottom: 11px;
+	}
+
+	@include breakpoint(xl) {
+		padding-bottom: 120px;
+	}
+}
+
+// preloder scss start
+.preloder-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+
+	.overlayDoor {
+
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			width: 50%;
+			height: 100%;
+			background: #111;
+			transition: 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+			transition-delay: 0.8s;
+		}
+
+		&:before {
+			left: 0;
+		}
+
+		&:after {
+			right: 0;
+		}
+	}
+
+	&.loaded {
+		.overlayDoor {
+			&:before {
+				left: -50%;
+			}
+
+			&:after {
+				right: -50%;
+			}
+		}
+
+		.overlayContent {
+			opacity: 0;
+			margin-top: -15px;
+		}
+	}
+
+	.overlayContent {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		transition: 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+	}
+}
+
+.loader {
+	width: 120px;
+	height: 120px;
+	border: 3px solid $preloder-color-2;
+	border-bottom: 3px solid transparent;
+	border-radius: 50%;
+	position: relative;
+	animation: spin 1s linear infinite;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.inner {
+		width: 80px;
+		height: 80px;
+		border: 3px solid transparent;
+		border-top: 3px solid $preloder-color-1;
+		border-left: 3px solid $preloder-color-1;
+		border-radius: 50%;
+		animation: spinInner 1s linear infinite;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.inner-loding {
+			width: 55px;
+			height: 55px;
+			border: 3px solid transparent;
+			border-top: 3px solid $preloder-color-2;
+			border-right: 3px solid $preloder-color-2;
+			border-radius: 50%;
+			animation: spinInner-inner 1s linear infinite;
+		}
+	}
+}
+
+@keyframes spin {
+	0% {
+		@include add-prefix(transform, rotate(0deg));
+	}
+
+	100% {
+		@include add-prefix(transform, rotate(360deg));
+	}
+}
+
+@keyframes spinInner {
+	0% {
+		@include add-prefix(transform, rotate(0deg));
+	}
+
+	100% {
+		@include add-prefix(transform, rotate(-720deg));
+	}
+}
+
+@keyframes spinInner-inner {
+	0% {
+		@include add-prefix(transform, rotate(0deg));
+	}
+
+	100% {
+		@include add-prefix(transform, rotate(720deg));
+	}
+}
+
+// preloder scss end
+
+// scrollToTop
+
+.scrollToTop {
+	position: fixed;
+	bottom: -30%;
+	right: 5%;
+	z-index: 999;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	background-image: radial-gradient(#e8505b 0%, #e8505b 100%);
+	text-align: center;
+	border-radius: 50%;
+	font-size: 24px;
+	@include add-prefix(animation, scroll-Top 5s linear infinite);
+	@include transition($transition);
+
+	&::after {
+		@extend%p-abs;
+		content: "\f102" !important;
+		font: var(--fa-font-solid);
+		top: 50%;
+		left: 0;
+		width: 100%;
+		font-size: 20px;
+		@include add-prefix(transform, translateY(-50%));
+	}
+
+	&:hover,
+	&:focus {
+		color: $white-color;
+	}
+}
+
+@keyframes scroll-Top {
+	0% {
+		@include add-prefix(transform, translateY(-15px));
+	}
+
+	50% {
+		@include add-prefix(transform, translateY(0px));
+	}
+
+	100% {
+		@include add-prefix(transform, translateY(-15px));
+	}
+}
+
+.wev-1,
+.wev-2 {
+	@extend %p-abs;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	left: 50%;
+	top: 50%;
+	@include add-prefix(transform, translate(-50%, -50%));
+	background-image: radial-gradient(#e8505b 0%, #e8505b 100%);
+
+	&::after,
+	&::before {
+		@extend %p-abs;
+		background-image: radial-gradient(#e8505b 0%, #e8505b 100%);
+
+		border-radius: 50%;
+		left: 50%;
+		top: 50%;
+		@include add-prefix(transform, translate(-50%, -50%));
+		z-index: 0;
+	}
+
+	&::after {
+		width: 30px;
+		height: 30px;
+		background: transparent;
+	}
+
+	&:before {
+		width: 40px;
+		height: 40px;
+	}
+}
+
+.wev-1 {
+	@include add-prefix(animation, pluse_animate 3s infinite linear);
+}
+
+.wev-2 {
+	&::before {
+		@include add-prefix(animation, pluse_animate 3s infinite linear);
+		-webkit-animation-delay: 1s;
+		animation-delay: 1s;
+		margin-left: 0;
+		margin-top: 0;
+	}
+}
+
+@keyframes pluse_animate {
+	0% {
+		opacity: 1;
+		@include add-prefix(transform, translate(-50%, -50%) scale(0.3));
+	}
+
+	100% {
+		opacity: 0;
+		@include add-prefix(transform, translate(-50%, -50%) scale(2));
+	}
+}
+
+// overlay 
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 0%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 999;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	@include transition($transition);
+
+	&.active {
+		right: 100%;
+	}
+}
+
+// mobile nav ber 
+.mobile-nav {
+	position: fixed;
+	background-color: $mobile-nav-color;
+	width: 100%;
+	z-index: 10;
+	box-shadow: 0 0 3px 2px rgba($white-color, 0.5);
+
+	@include breakpoint(xl) {
+		display: none !important;
+	}
+
+	&__wrapper {
+		@extend %flex,
+		%justify-between,
+		%ai-center;
+		padding: 10px 0;
+	}
+
+	&__logo {
+		width: calc(100% - 35px);
+
+		&.sidebar__title {
+			@extend %text-left;
+			margin: 0;
+
+			h1 a {
+				color: $white-color !important;
+			}
+		}
+	}
+
+	.hamburger {
+		cursor: pointer;
+		width: 35px;
+		height: 30px;
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+
+		span {
+			@extend %p-abs;
+			transition-duration: 0.5s;
+			height: 5px;
+			width: 35px;
+			top: 50%;
+			@include add-prefix(transform, translateY(-50%));
+			background-color: $white-color;
+			@include border-radius(4px);
+
+			&:before {
+				@extend %p-abs;
+				transition-duration: 0.5s;
+				width: 35px;
+				height: 5px;
+				background-color: $white-color;
+				top: 13px;
+				@include border-radius(4px);
+			}
+
+			&:after {
+				@extend %p-abs;
+				transition-duration: 0.5s;
+				width: 35px;
+				height: 5px;
+				background-color: $white-color;
+				top: -12px;
+				@include border-radius(4px);
+			}
+		}
+
+		&.remove {
+			span {
+				transition-duration: 0.5s;
+				background: transparent;
+
+				&:before {
+					@include add-prefix(transform, rotateZ(-45deg) scaleX(1) translate(8px, -10px));
+				}
+
+				&:after {
+					@include add-prefix(transform, rotateZ(45deg) scaleX(1) translate(8px, 10px));
+				}
+			}
+		}
+	}
+}
+
+// main content section
+section {
+	overflow: hidden;
+}
+
+.section {
+	max-width: calc(100%);
+	margin-left: auto;
+	padding: 15px;
+	@include add-prefix(transition, .9s ease-in-out);
+
+	@include breakpoint(sm) {
+		padding: 30px;
+	}
+
+	@include breakpoint(xl) {
+		max-width: calc(100% - 340px);
+	}
+
+	section {
+		margin-bottom: 50px;
+
+		@include breakpoint(sm) {
+			margin-bottom: 75px;
+		}
+
+		@include breakpoint(md) {
+			margin-bottom: 85px;
+		}
+
+		@include breakpoint(lg) {
+			margin-bottom: 100px;
+		}
+
+	}
+
+	&__header {
+		margin-bottom: 35px;
+		@extend %p-rel;
+
+		&::after,
+		&::before {
+			@extend %p-abs;
+			height: 2px;
+			bottom: 0;
+		}
+
+		&::after {
+			left: 0;
+			width: 100px;
+			background-image: $resume-heading-bg-color;
+		}
+
+		&::before {
+			left: 100px;
+			width: calc(100% - 100px);
+			background-color: $white-color;
+		}
+
+		h3 {
+			@include font-size($fs-h3);
+			@extend %text-bold,
+			%text-capitalize,
+			%p-rel;
+			color: $title-color;
+			padding-bottom: 18px;
+
+			span {
+				@extend %text-uppercase;
+			}
+		}
+	}
+}
+
+.services .cart__content {
+	text-align: left;
+}
+
+// bootstrab column system 
+.col-xxxl-12 {
+	@media screen and (min-width: 1920px) {
+		flex: 0 0 auto;
+		width: calc(100%);
+	}
+}
+
+.col-xxxl-6 {
+	@media screen and (min-width: 1920px) {
+		flex: 0 0 auto;
+		width: calc(100% / 2);
+	}
+}
+
+.col-xxxl-4 {
+	@media screen and (min-width: 1920px) {
+		flex: 0 0 auto;
+		width: calc(100% / 3);
+	}
+}
+
+.col-xxxl-3 {
+
+	@media screen and (min-width: 1920px) {
+		flex: 0 0 auto;
+		width: calc(100% / 4);
+	}
+}

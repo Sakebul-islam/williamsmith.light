@@ -1,0 +1,296 @@
+.sidebar {
+    padding-top: 68px;
+
+    @include breakpoint(xl) {
+        padding-top: 0px !important;
+    }
+
+    &__navigation {
+        max-width: 340px;
+        position: fixed;
+        height: 100%;
+        background-color: $white-color;
+        padding: 35px;
+        overflow-y: scroll;
+        @include add-prefix(transform, translateX(-340px));
+        @include add-prefix(transition, 0.4s ease-in-out);
+        z-index: 999;
+
+        @include breakpoint(xl) {
+            @include add-prefix(transform, translateX(0px));
+            box-shadow: none;
+        }
+
+        &.active {
+            @include add-prefix(transform, translateX(0));
+            box-shadow: 0 0 3px 1px #ffffff1a;
+        }
+
+        &::-webkit-scrollbar {
+            width: 10px;
+            /* width of the entire scrollbar */
+        }
+
+        &::-webkit-scrollbar-track {
+            background: initial;
+            /* color of the tracking area */
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: gray;
+            /* color of the scroll thumb */
+            @include add-prefix(border-radius, 10px);
+            /* roundness of the scroll thumb */
+            border: 3px solid initial;
+            /* creates padding around scroll thumb */
+        }
+
+
+        scrollbar-width: thin;
+        /* "auto" or "thin" */
+        // scrollbar-color: red orange;
+        /* scroll thumb and track */
+
+    }
+
+    &__logo {
+        a {
+            @extend %p-rel;
+            z-index: 1;
+            margin-top: 20px;
+
+            img {
+                z-index: 3;
+                @extend %p-rel;
+                @extend %box-shadow-two;
+            }
+
+            &::after {
+                @extend %p-abs;
+                top: -20px;
+                left: 20px;
+                width: 250px;
+                height: 250px;
+                background-image: $logo-bg-color;
+                @extend %box-shadow-one;
+                z-index: 2;
+            }
+        }
+    }
+
+    &__title {
+        text-align: center;
+        margin: 35px 0;
+
+        h1 {
+            color: $menu-title-color;
+            font-size: 30px;
+            @extend %text-bold,
+            %text-capitalize;
+
+            a {
+                color: $menu-title-color;
+
+                &:focus,
+                &:active,
+                &:hover {
+                    color: $menu-title-color;
+                    background-image: $duration-cart-color;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+            }
+        }
+
+        span {
+            color: $dagination-color;
+            @extend %text-regular;
+            text-transform: initial;
+        }
+    }
+
+    &__menu {
+        @extend %flex;
+
+        .list-group-item {
+            padding: 5px 15px;
+            margin-top: 10px !important;
+            border: 1px solid $border-color-1;
+            @extend %border-radius-4;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+
+        &-item {
+            @extend %ai-center;
+        }
+
+        &-icon {
+            width: 52px;
+            height: 52px;
+            @extend %flex,
+            %justify-center,
+            %ai-center;
+            @include border-radius(50%);
+
+            &.home-color {
+                background-color: $home-color;
+            }
+
+            &.about-color {
+                background-color: $about-color;
+            }
+
+            &.resume-color {
+                background-color: $resume-color;
+            }
+
+            &.services-color {
+                background-color: $services-color;
+            }
+
+            &.portfolio-color {
+                background-color: $portfolio-color;
+            }
+
+            &.blog-color {
+                background-color: $blog-color;
+            }
+
+            &.contact-color {
+                background-color: $contact-color;
+            }
+        }
+
+        &-title {
+            padding-left: 12px;
+            text-align: left;
+
+            h6 {
+                @extend %text-bold,
+                %text-capitalize;
+                font-size: $fs-h6;
+                color: $menu-title-color;
+            }
+
+            span {
+                text-transform: initial;
+                color: $pragraph-color;
+            }
+        }
+
+        .nav-pills .nav-link {
+            padding: 0;
+        }
+    }
+
+    &__social {
+        margin: 40px 0 100px;
+
+        &>h6 {
+            @extend %text-regular,
+            %text-capitalize;
+            font-size: $fs-h6;
+            margin-bottom: 17px;
+        }
+
+        .social-icons {
+            gap: 7px;
+
+            .behance {
+                background-color: $behance;
+            }
+
+            .pinterest {
+                background-color: $pinterest;
+            }
+
+            .dribbble {
+                background-color: $dribbble;
+            }
+
+            .facebook {
+                background-color: $facebook;
+            }
+
+            li {}
+        }
+    }
+
+    #nav-serialscrolling {
+        width: 100%;
+    }
+
+    #nav-serialscrolling .sub-link,
+    .nav-pills .nav-link {
+        position: relative;
+        display: block;
+        font-size: 13px;
+        cursor: pointer;
+        // opacity: 0.5;
+        transition: 300ms;
+    }
+
+    #nav-serialscrolling .sub-link {
+        padding: 5px 15px;
+    }
+
+    .sub-link {
+        background-color: transparent;
+    }
+
+    #nav-serialscrolling .sub-link:hover,
+    .nav-pills .nav-link:hover,
+    .nav-pills .nav-link.active,
+    #nav-serialscrolling .sub-link.is-current {
+        background: $message-color;
+        // border-color: $title_span-color;
+
+        .sidebar__menu-title {
+
+            h6,
+            span {
+                color: $white-color
+            }
+        }
+    }
+
+    .sub-link.is-current .sidebar__menu-title span,
+    .nav-link.active .sidebar__menu-title span,
+    .sub-link.is-current .sidebar__menu-title h6,
+    .nav-link.active .sidebar__menu-title h6,
+        {
+        color: $white-color !important;
+    }
+
+    #nav-serialscrolling .sub-link:before,
+    .nav-pills .nav-link:after,
+    .nav-pills .nav-link:before,
+    #nav-serialscrolling .sub-link:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 100%;
+        transition: 300ms;
+    }
+
+    #nav-serialscrolling .sub-link:before,
+    .nav-pills .nav-link:before {
+        left: -30px;
+        width: 16px;
+        height: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    #nav-serialscrolling .sub-link:after,
+    .nav-pills .nav-link:after {
+        left: -23px;
+        width: 5px;
+        height: 5px;
+        background-color: #b41c28;
+        opacity: 0 !important;
+    }
+}

@@ -1,0 +1,163 @@
+.home-menu {
+    background-color: $alter-theme-color;
+
+    &__thumb {
+        margin-bottom: 15px;
+
+        @include breakpoint(lg) {
+            margin-bottom: 0;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__content {
+        padding: 18px;
+
+        @include breakpoint(sm) {
+            padding: 25px;
+        }
+
+        @include breakpoint(md) {
+            padding: 30px;
+        }
+
+        @include breakpoint(lg) {
+            padding: 45px;
+            padding-right: 0;
+        }
+
+        .hellow {
+            display: inline-block;
+            @extend %p-rel,
+            %text-capitalize,
+            %text-regular,
+            %border-radius-4;
+            line-height: 2.188;
+            padding: 0px 24.63px;
+            color: $white-color;
+            margin-bottom: 15px;
+            background-image: $message-color;
+
+            &::after {
+                @extend %p-abs;
+                display: block;
+                width: 15px;
+                height: 11px;
+                clip-path: polygon(99% 0, 34% 0, 0 76%);
+                shape-outside: polygon(99% 0, 34% 0, 0 76%);
+                bottom: -11px;
+                left: 15px;
+                background-image: $message-color;
+            }
+        }
+
+        h2 {
+            @include font-size($fs-h2);
+            @extend %text-bold,
+            %text-capitalize;
+            color: $title-color;
+            margin-bottom: 16px;
+
+            span {
+                color: $title_span-color;
+            }
+        }
+
+        &>p {
+            color: $pragraph-color;
+            @extend %text-capitalize,
+            %text-regular;
+            line-height: 1.875;
+            margin-bottom: 25px;
+        }
+
+        .download-resum {
+            margin-top: 24px;
+        }
+    }
+
+    &__details-list {
+        li {
+            padding: 8px 0;
+
+            .left {
+                width: 100px;
+                display: inline-block;
+                @extend %p-rel,
+                %text-capitalize,
+                %text-medium;
+                color: $details-left-color;
+
+                @include breakpoint(sm) {
+                    width: 130px;
+                }
+
+                &::after {
+                    @extend%p-abs;
+                    content: ":" !important;
+                    @extend %text-medium;
+                    top: 50%;
+                    @include add-prefix(transform, translateY(-50%));
+                    right: 0;
+                    padding-bottom: 4px;
+                }
+            }
+
+            .right {
+                text-transform: initial;
+                font-size: $fs-h6;
+                @extend %text-regular;
+                color: $title-color;
+
+                a {
+                    color: $title-color;
+
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        background-image: $duration-cart-color;
+                        @include gradient-text;
+                    }
+                }
+            }
+        }
+    }
+
+    &__thumb {
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.pageheader {
+    padding-block: 150px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include breakpoint(xl) {
+        margin-left: 340px;
+    }
+
+    h2 {
+        color: $white-color;
+        text-transform: capitalize;
+        @include font-size(36px);
+    }
+
+    .breadcrumb {
+        li {
+            color: $white-color;
+
+            a {
+                &:hover {
+                    color: $title_span-color;
+                }
+            }
+        }
+    }
+}

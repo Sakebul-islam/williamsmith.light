@@ -1,0 +1,260 @@
+.resume {
+    .section__wrapper {
+        margin-left: 5px;
+    }
+
+    &__title {
+        background-color: $white-color;
+        margin-bottom: 10px;
+
+        &.normal {
+            margin-bottom: 0;
+            border-bottom: 1px solid $theme-color;
+        }
+    }
+
+    &__title-thumb {
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        @extend %p-rel,
+        %text-center;
+        background-image: $resume-heading-bg-color;
+
+        &::after {
+            @extend %p-abs;
+            top: 50%;
+            left: 100%;
+            @include add-prefix(transform, (translateY(-50%) rotate(180deg)));
+            width: 0px;
+            height: 0px;
+            border-top: 15px solid transparent;
+            border-right: 15px solid $tryagain-color;
+            border-bottom: 15px solid transparent;
+            border-left: 15px solid transparent;
+        }
+    }
+
+    &__title-content {
+        background-color: $white-color;
+
+        h4 {
+            @include font-size($fs-h4);
+            @extend %text-bold,
+            %text-capitalize;
+            color: $resume-heading-color;
+            line-height: 2.5;
+            margin-left: 24px;
+
+        }
+    }
+
+    &__inner-top {
+        @extend %p-rel;
+        margin-bottom: 45px;
+
+        @include breakpoint(sm) {
+            margin-bottom: 65px;
+        }
+
+        &::after {
+            @extend %p-abs;
+            top: 71px;
+            left: 0;
+            height: calc(100% - 71px);
+            width: 10px;
+            background-color: $white-color;
+        }
+    }
+
+    &__item {
+        margin-bottom: 30px;
+        margin-left: 30px;
+        background-color: $white-color;
+        @extend %p-rel;
+        @include add-prefix(transition, 3s linear infinite);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+
+        // &:hover {
+        //     @include add-prefix(animation, identifier 3s linear infinite);
+        // }
+
+        // @keyframes identifier {
+        //     0% {
+        //         @include add-prefix(transform, translateY(-10px));
+        //     }
+
+        //     50% {
+        //         @include add-prefix(transform, translateY(0px));
+        //     }
+
+        //     100% {
+        //         @include add-prefix(transform, translateY(10px));
+        //     }
+        // }
+    }
+
+    &__inner {
+        padding: 20px;
+
+        @include breakpoint(lg) {
+            padding: 30px;
+        }
+
+        &::after {
+            @extend %p-abs;
+            top: 50%;
+            left: -30px;
+            width: 0px;
+            height: 0px;
+            border-top: 15px solid transparent;
+            border-right: 15px solid $white-color;
+            border-bottom: 15px solid transparent;
+            border-left: 15px solid transparent;
+            @include add-prefix(transform, translateY(-50%));
+        }
+
+        &::before {
+            @extend %p-abs;
+            top: 50%;
+            left: -34px;
+            width: 18px;
+            height: 18px;
+            z-index: 1;
+            background-color: $theme-color;
+            border: 3px solid $white-color;
+            @include add-prefix(transform, translateY(-50%));
+            @include add-prefix(border-radius, 50%);
+        }
+    }
+
+    &__top-content {
+        margin-bottom: 11px;
+
+        .sub-title-duration {
+            @extend %flex,
+            %ai-center;
+            margin-bottom: 15px;
+
+            p {
+                @extend %text-capitalize;
+                margin-bottom: 5px;
+
+                @include breakpoint(sm) {
+                    margin-bottom: 0;
+                }
+            }
+
+            .duration-cart {
+                background-image: $duration-cart-color;
+                color: $white-color;
+                margin-left: 3px;
+                padding: 3px 4px 3px 10px;
+                clip-path: polygon(100% 0, 6% 0, 6% 30%, 0 50%, 6% 70%, 6% 100%, 100% 100%);
+                @include font-size($fs-14);
+
+                @include breakpoint(sm) {
+                    margin-left: 12px;
+                    padding: 3px 13px 3px 19px;
+                }
+            }
+        }
+
+        h5 {
+            @include font-size($fs-h5);
+            @extend %text-bold,
+            %text-capitalize;
+            color: $black-color;
+            @extend %text-1;
+
+            span {
+                @extend %text-uppercase;
+            }
+        }
+    }
+
+    &__progress-bar {
+        background-color: $white-color;
+        @extend %flex,
+        %justify-center,
+        %ai-center;
+        padding: 35px;
+        gap: 50px;
+
+        @media screen and (min-width: 500px) {
+            gap: 80px;
+        }
+
+        @media screen and (min-width: 564px) {
+            gap: 90px;
+        }
+
+        @include breakpoint(sm) {
+            gap: 115px;
+        }
+
+        @include breakpoint(md) {
+            gap: 40px;
+        }
+
+        @include breakpoint(lg) {
+            justify-content: center;
+            gap: 80px;
+        }
+
+        @media screen and (min-width: 1349px) {
+            gap: 100px;
+        }
+
+        @media screen and (min-width: 1500px) {
+            gap: 20px;
+        }
+
+
+        .prog {
+            @extend %text-center;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+
+
+            p {
+                @extend %text-regular,
+                %text-capitalize;
+                @include font-size($fs-h6);
+
+                span {
+                    @extend %text-uppercase;
+                }
+            }
+
+            .pie-title-center {
+                background-color: $white-color;
+                display: block;
+                position: relative;
+                text-align: center;
+                margin-bottom: 5px;
+            }
+
+            .pie-value {
+                @extend %text-bold,
+                %d-block,
+                %p-abs;
+                @include font-size($fs-h6);
+                color: $tryagain-color;
+                height: 40px;
+                top: 50%;
+                left: 0;
+                right: 0;
+                margin-top: -20px;
+                line-height: 40px;
+            }
+        }
+    }
+}

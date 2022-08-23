@@ -1,0 +1,76 @@
+.footer {
+    @extend %text-center;
+    padding: 65px 15px;
+    background-image: $duration-cart-color;
+
+    &.single {
+        @include breakpoint(xl) {
+            margin-left: 370px;
+            margin-right: 30px;
+        }
+    }
+
+    &__header {
+        margin-bottom: 5px;
+
+        h2 {
+            color: $white-color;
+            @extend %text-bold,
+            %text-capitalize;
+            @include font-size($fs-h2);
+        }
+    }
+
+    &__wrapper {
+        padding: 0 5px;
+
+        p {
+            color: $white-color;
+            @extend %text-regular,
+            %text-capitalize;
+
+            span {
+                @extend %text-uppercase;
+            }
+        }
+    }
+
+    &__social {
+        @extend %flex,
+        %justify-center,
+        %ai-center;
+        margin-top: 22px;
+
+        li {
+            background-color: $white-color;
+            margin: 0 5px;
+            @include add-prefix(border-radius, 50%);
+            @include transition($transition);
+
+            @include breakpoint(sm) {
+                margin: 0 7.5px;
+            }
+
+            &:hover {
+                background-color: $title-color;
+
+                a {
+                    color: $white-color;
+                }
+            }
+
+            a {
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                color: $social-icon-color;
+
+                @include breakpoint(sm) {
+                    width: 45px;
+                    height: 45px;
+                    line-height: 45px;
+                }
+            }
+        }
+    }
+}
